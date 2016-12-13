@@ -9,20 +9,16 @@ var port = 3000;
 
 var app = express();
 
-// View Engine
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
-
 // Static folder for angular2 app
-app.use(express.static(path.join(__dirname, 'client')));
-// app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client'))); // for serving node_modules
+app.use(express.static(path.join(__dirname, 'client/build'))); // for serving static *.js files
+
+app.use(express.static(path.join(__dirname, 'views')));
 
 // Body Parser MW
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use('/', index);
 app.use('/api', tasks);
 
 app.listen(port, function() {
