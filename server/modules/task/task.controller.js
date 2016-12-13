@@ -1,31 +1,40 @@
-var express = require('express');
-var router = express.Router();
-var mongojs = require('mongojs');
+'use strict';
 
+var mongojs = require('mongojs');
 var db = mongojs('mongodb://localhost:27017/test', ['tasks']);
 
+module.exports = {
+	getAll: getAll,
+	get: get,
+	insert: insert,
+	remove: remove,
+	update: update
+};
+
+//////////////////////////
+
 // Get all tasks
-router.get('/tasks', function(req, res, next) {
+function getAll(req, res) {
 	db.tasks.find(function(err, tasks) {
 		if (err) {
 			res.send(err);
 		}
 		res.json(tasks);
 	});
-});
+}
 
 // Get single task
-router.get('/tasks/:id', function(req, res, next) {
+function get(req, res) {
 	db.tasks.findOne({_id: mongojs.ObjectId(req.params.id)}, function(err, task) {
 		if (err) {
 			res.send(err);
 		}
 		res.json(task);
 	});
-});
+}
 
 // Insert new task
-router.post('/tasks', function(req, res, next) {
+function insert(req, res) {
 	var task =  req.body;
 	if (!task.title || !(task.isDone + '')) {
 		res.status(400);
@@ -40,20 +49,20 @@ router.post('/tasks', function(req, res, next) {
 			res.json(task);
 		});
 	}
-});
+}
 
-// Delete single task
-router.delete('/tasks/:id', function(req, res, next) {
+// Remove single task
+function remove(req, res) {
 	db.tasks.remove({_id: mongojs.ObjectId(req.params.id)}, function(err, task) {
 		if (err) {
 			res.send(err);
 		}
 		res.json(task);
 	});
-});
+}
 
 // Update task
-router.put('/tasks/:id', function(req, res, next) {
+function update(req, res, next) {
 	var task = req.body;
 	var updTask = {};
 
@@ -78,7 +87,4 @@ router.put('/tasks/:id', function(req, res, next) {
 			res.json(task);
 		});
 	}
-});
-
-
-module.exports = router;
+}
