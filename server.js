@@ -10,12 +10,16 @@ var port = 3000;
 var app = express();
 
 // Static folder for angular2 app
-app.use(express.static(path.join(__dirname, 'client'))); // for serving node_modules
-app.use(express.static(path.join(__dirname, 'client/build'))); // for serving static *.js files
 
+// for serving node_modules/*
+app.use(express.static(path.join(__dirname, 'client')));
+// for serving compiled *.js files
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+// for loading static HTML pages eg: index.html
 app.use(express.static(path.join(__dirname, 'views')));
 
-// Body Parser MW
+// Body Parser MiddleWare
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
