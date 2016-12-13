@@ -8,6 +8,8 @@ var port = 3000;
 // Express application
 var app = express();
 
+// loading datatbase instance
+var mongoose = require('./config/mongo');
 
 /* START Static folder for angular2 app */
 

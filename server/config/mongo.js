@@ -1,4 +1,7 @@
-var mongojs = require('mongojs');
+'use strict';
 
-// connecting to db
-module.exports = mongojs('mongodb://localhost:27017/test');
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/test');
+
+module.exports = mongoose;
