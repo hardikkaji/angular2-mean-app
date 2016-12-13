@@ -1,0 +1,21 @@
+<h2>Tasks</h2>
+<form class="well" (submit)="addTask($event)">
+	<input class="form-control"
+		[(ngModel)]="title"
+		name="title"
+		placeholder="Enter new task and press enter to insert">
+</form>
+
+<div *ngFor="let task of tasks" class="row">
+	<div class="col-sm-1">
+		<input type="checkbox">
+	</div>
+	<div class="col-sm-7">
+		{{task.title}}
+	</div>
+	<div class="col-sm-4">
+		<input type="button" class="btn btn-danger" value="Delete"
+			(click)="deleteTask(task._id)">
+		<br><br>
+	</div>
+</div>
