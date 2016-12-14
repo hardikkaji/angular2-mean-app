@@ -7,7 +7,7 @@
 
 ## How to run project
 1. Clone project.
-2. Go to project folder and run `npm install`
+2. Go to project folder and run `npm install; bower install`
 3. Go to `project folder/client` and run `npm install`
 4. Go to project folder and run `npm start`
 5. Go to `project folder/client` run `npm start`
