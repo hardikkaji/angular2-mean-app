@@ -34,7 +34,7 @@ function get(req, res) {
 
 // Insert new task
 function insert(req, res) {
-	var task =  req.body;
+	var task = req.body;
 	if (!task.title || !(task.isDone + '')) {
 		res.status(400);
 		res.json({
