@@ -1,13 +1,14 @@
 'use strict';
 
 var Task = require('./task.schema');
-
-module.exports = {
+var TaskController = {
 	getAll: getAll,
 	get: get,
 	insert: insert,
 	remove: remove
 };
+
+module.exports = TaskController;
 
 //////////////////////////
 
