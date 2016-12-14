@@ -1,0 +1,24 @@
+{
+  "name": "angular2-mean-app",
+  "description": "sample angular2 mean application",
+  "main": "server/app.js",
+  "authors": [
+    "hardikkaji@gmail.com"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/hardikkaji/angular2-mean-app",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
