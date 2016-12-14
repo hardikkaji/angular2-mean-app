@@ -4,7 +4,8 @@ var router = require('express').Router();
 
 // Application routes configurations
 var routes = [
-	'./modules/task/task.route'
+	'./modules/task/task.route',
+	'./modules/category/category.route'
 ];
 
 // Itertating routes and add to Application

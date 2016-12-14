@@ -1,0 +1,7 @@
+/*
+ * Application level stylesheets to override bootstrap styles.
+ */
+
+body {
+	padding-top: 70px;
+}
